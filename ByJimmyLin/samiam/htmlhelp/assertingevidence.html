@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>SamIam User Documentation - Asserting Evidence</title>
+<link rel="stylesheet" type="text/css" href="topics.css" />
+<meta name="author" content="Keith Cascio">
+<meta name="author" content="modified by Denis Zaloznyy">
+<script language="JavaScript">
+<!--
+if (document.images) {
+    imageon = new Image();
+    imageon.src = "shots/ae1.png";
+}
+  
+function change(image,ext) {
+    if (document.images)
+	if(ext == 'on')
+        document.images[image].src = imageon.src;
+}
+//--></script>
+</head>
+<body>
+<h2 class="topictitle"><font face="Arial, Helvetica, sans-serif" color="#CC0000">Asserting Evidence</font></h2>
+<p class="topicparagraph" align="left">
+There are several ways SamIam allows a user to <font class="keyword">assert</font> 
+and <font class="keyword">retract</font> evidence on variables in a Bayesian 
+network. The simplest way to set an evidence value is by using the <font class="keyword">Evidence 
+Tree view</font>, which is the leftmost window that appears in SamIam when a 
+network is open. The Evidence Tree contains a tree-style list of every node 
+in each sub model of the network (in the case of networks defined in the Hugin 
+.net file format, there will be only one sub model), sorted lexicographically 
+according to node names,
+and divided according to an enumerated variable property you choose,
+for example, Genie diagnosis type.
+Expanding the tree branch of a node reveals tree leaves 
+for each of its defined states. Single-clicking the mouse on one of these states 
+asserts that the variable is in that state with probability 1. SamIam indicates 
+such an assertion visually by highlighting the name of the variable in the tree, the 
+name of the asserted state, and the border of the node icon in the network display,
+by default in the color red. To retract evidence 
+that has been set on a variable, single-click the name of the asserted state. 
+Evidence can also be set by using the <font class="keyword"><a href="monitors.html" target="_self">Monitors</a></font>.
+</p>
+<p class="topicparagraph" align="left">
+By right-clicking the background of the 
+Evidence Tree window with the mouse, the user can pop up a context menu that 
+provides a few convenient ways to set evidence on multiple variables at once. 
+The first menu item, <font class="keyword">Reset Evidence</font>, will retract evidence on every asserted 
+variable. The menu item <font class="keyword">Set Defaults</font> pertains to
+Genie files
+only. Choosing this item will assert the default evidence on the variables in 
+the network, if the user has defined such defaults using Genie.
+</p>
+<p class="topicparagraph">
+The instantiation clipboard is a new feature of SamIam 2.2 that can make working with evidence
+more convenient.  The instantiation clipboard, accessible through the Tools menu, is a place where
+the user can save an instantiation over an arbitrary number of discrete finite variables, and recall
+the instantiation later.  The user can copy the currently set evidence to the clipboard, or copy
+the answer to a MAP or MPE query.  Once he has copied a useful instantiation, the user can save it
+to a file and load it later.
+</p>
+  <br>
+<p class="topicparagraph" align="left">&nbsp; 
+<div align="center">
+  <table width="25%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td> 
+        <div align="left"><center><a href="#evidence" onMouseover="change('evidence','on')"><img src="shots/ae1.thumb.png" name="evidence" border="0" alt=""></a></center></div>
+      </td>
+    </tr>
+    <tr> 
+      <td> 
+        <div align=center><font size="2">Asserting Evidence; Options Menu<br> of the 
+          Evidence Tree Window</font></div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

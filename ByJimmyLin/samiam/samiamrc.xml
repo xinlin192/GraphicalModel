@@ -1,0 +1,82 @@
+<SamiamPreferences>
+	<DefaultPath>/Users/JimmyLin/workspace/GraphicalModel/ByJimmyLin/PGM-Programming_Assignment_1</DefaultPath>
+	<FileExtension>.net</FileExtension>
+	<SecondsPerRCCall>2.018421361862025E-6</SecondsPerRCCall>
+	<RecentDocuments>/Users/JimmyLin/workspace/GraphicalModel/ByJimmyLin/PGM-Programming_Assignment_1/Credit_net.net;</RecentDocuments>
+	<Algorithm>null</Algorithm>
+	<PreferenceGroup name="Inference">
+		<pref class="edu.ucla.belief.ui.preference.IntegerPreference" key="inferenceMinFillRepetitions" value="7" name="Min fill, best of N repetitions" />
+		<pref class="edu.ucla.belief.ui.preference.IntegerPreference" key="inferenceMinFillSeed" value="1616867688" name="Min fill, new random seed (not saved)" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="inferenceMAPExplorerFullScreenWidth" value="true" name="MAP Solution Explorer, maximize width" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="askBeforeCPTCopy" value="true" name="Ask before modifying cpt (cpt copy tool)" />
+		<pref class="edu.ucla.belief.ui.preference.EnumPreference$Caste" key="inferenceCaste" value="retard" name="User level (cpt copy tool)" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="inferenceUnifyCompileSettings" value="false" name="Couple sub-algorithm settings" />
+	</PreferenceGroup>
+	<PreferenceGroup name="Tree">
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="treeNormalClr" value="0,0,0" name="Normal color" />
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="warnClr" value="255,175,175" name="Computation in progress color" />
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="manualClr" value="255,0,0" name="Observed evidence color" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="showTargetProbabilities" value="true" name="Show target probabilities" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="showAuxiliaryProbabilities" value="false" name="Show auxiliary probabilities" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="showObservationProbabilities" value="false" name="Show observation probabilities" />
+		<pref class="edu.ucla.belief.ui.preference.ObjectPreference" key="treeSortDefault" value="in-outdegree" name="Sort by (default)" />
+	</PreferenceGroup>
+	<PreferenceGroup name="Network">
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="netBkgdClr" value="192,192,192" name="Network background color (compiled)" />
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="netBkgdClrNeedsCompile" value="150,127,143" name="Network background color (needs compile)" />
+		<pref class="edu.ucla.belief.ui.preference.ObjectPreference" key="nodeShape" value="oval" name="Node shape" />
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="nodeBorderClr" value="0,0,0" name="Node border color" />
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="nodeBorderClrObserved" value="255,0,0" name="Node border color (observed)" />
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="nodeBkgndClr" value="255,255,204" name="Node background color" />
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="nodeTextClr" value="0,0,255" name="Node name color" />
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="nodeTextLikeliestValueClr" value="0,102,0" name="Likeliest value color (stable)" />
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="nodeTextFlippedValueClr" value="255,255,255" name="Likeliest value color (flipped)" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="nodeLikeliestBreakLine" value="false" name="Likeliest value always second line" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="nodeFontBold" value="false" name="Nodes use bold font" />
+		<pref class="edu.ucla.belief.ui.preference.DimensionPreference" key="nodeDefaultSize" value="130,55" name="Default node size" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="netSizeOverRidesPrefs" value="false" name="Use size in network file if available" />
+		<pref class="edu.ucla.belief.ui.preference.DoublePreference" key="nodeNormalStroke" value="1.0" name="Node border width (unselected)" />
+		<pref class="edu.ucla.belief.ui.preference.DoublePreference" key="nodeObservedStroke" value="3.0" name="Node border width (observed)" />
+		<pref class="edu.ucla.belief.ui.preference.DoublePreference" key="nodeWideStroke" value="5.0" name="Node border width (selected)" />
+		<pref class="edu.ucla.belief.ui.preference.DimensionPreference" key="edgeArrowTipSize" value="10,6" name="Arrow tip size" />
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="edgeClr" value="0,0,0" name="Edge color" />
+		<pref class="edu.ucla.belief.ui.preference.DoublePreference" key="arrowStroke" value="1.0" name="Edge width" />
+	</PreferenceGroup>
+	<PreferenceGroup name="Find">
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="showGrepBtn" value="true" name='Show "find"/"grep" button' />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="grepHightlightToggles" value="true" name="Highlight toggle buttons" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="grepTrim" value="true" name="Omit leading and trailing whitespace" />
+		<pref class="edu.ucla.belief.ui.preference.EnumPreference$Autosuggest" key="grepAutosuggest" value="syntactic,semantic" name="Auto-suggest (interactive help)" />
+		<pref class="edu.ucla.belief.ui.preference.LingoPreference" key="grepVocabulary" name="vocabulary" value="" >
+			<presentation angle="sense"                 representation=""                      implicit="ninvert"               ordinal="0" />
+			<presentation angle="language"              representation=""                      implicit="literal"               ordinal="1" />
+			<presentation angle="casesensitivity"       representation=""                      implicit="ignorecase"            ordinal="2" />
+			<presentation angle="boundary"              representation=""                      implicit="part"                  ordinal="3" />
+			<presentation angle="redirect"              representation=""                      implicit="txt2devnull"           ordinal="4" />
+			<presentation angle="impact"                representation=""                      implicit="additive"              ordinal="5" />
+		</pref>
+	</PreferenceGroup>
+	<PreferenceGroup name="Monitors">
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="evidDlgManualClr" value="255,0,0" name="Observed evidence color" />
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="evidDlgWarnClr" value="255,175,175" name="Computation in progress color" />
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="evidDlgAutoClr" value="0,178,0" name="First unobserved color" />
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="evidDlgAutoClr2" value="0,60,0" name="Second unobserved color" />
+		<pref class="edu.ucla.belief.ui.preference.DimensionPreference" key="evidDlgRectSize" value="25,12" name="Evidence bar size" />
+		<pref class="edu.ucla.belief.ui.preference.ColorPreference" key="evidDlgTextClr" value="0,0,255" name="Text color" />
+		<pref class="edu.ucla.belief.ui.preference.ObjectPreference" key="evidDlgView" value="percentage" name="View" />
+		<pref class="edu.ucla.belief.ui.preference.IntegerPreference" key="evidDlgMinimumFractionDigits" value="2" name="Probability precision" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="evidDlgZooms" value="false" name="Zoom with network*" />
+		<pref class="edu.ucla.belief.ui.preference.DoublePreference" key="evidDlgZoomFactor" value="100.0" name="Zoom % (* not checked)" />
+	</PreferenceGroup>
+	<PreferenceGroup name="Global">
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="displayNodeLabelIfAvail" value="true" name="Show node labels instead of identifiers (if available)" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="autoCalculatePrE" value="true" name="Show Pr(e) in status bar" />
+		<pref class="edu.ucla.belief.ui.preference.IntegerPreference" key="statusBarPointSize" value="10" name="Status bar point size" />
+		<pref class="edu.ucla.belief.ui.preference.ObjectPreference" key="lookAndFeelClassName" value="com.apple.laf.AquaLookAndFeel" name="User interface look and feel" />
+		<pref class="edu.ucla.belief.ui.preference.IntegerPreference" key="maxRecentDocuments" value="4" name="Maximum recent documents in File menu" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="autoCPTInvalid" value="false" name="Automatically invalidate CPTs" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="nodesDisplayLikeliestValue" value="true" name="Nodes display likeliest value" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="animateStatusBarWest" value="false" name="Animate status bar, west" />
+		<pref class="edu.ucla.belief.ui.preference.BooleanPreference" key="animateStatusBarEast" value="false" name="Animate status bar, east" />
+	</PreferenceGroup>
+</SamiamPreferences>

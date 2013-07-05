@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>SamIam User Documentation - Selecting Nodes</title>
+<link rel="stylesheet" type="text/css" href="topics.css" />
+<meta name="author" content="Keith Cascio">
+<meta name="author" content="modified by Denis Zaloznyy">
+<script language="JavaScript">
+<!--
+if (document.images) {
+    imageon = new Image();
+    imageon.src = "shots/sn1.png";
+}
+  
+function change(image,ext) {
+    if (document.images)
+	if(ext == 'on')
+        document.images[image].src = imageon.src;
+}
+//--></script>
+</head>
+<body>
+<h2 class="topictitle"><font face="Arial, Helvetica, sans-serif" color="#CC0000">Selecting Nodes</font></h2>
+<p class="topicparagraph">SamIam supports several techniques for selecting a subset 
+  of the nodes in the network. You can <font class="keyword">select a single node</font> 
+  by single-clicking the mouse over its icon in the network view or in the evidence tree.
+  You can also 
+  drag a selection rectangle across the network view by holding down the left 
+  mouse button. Additionally, double-clicking a node will bring up its <a href="editingconditionalprobabilities.html" target="_self">Properties 
+  dialog</a>. To <font class="keyword">deselect all nodes</font>, click the background 
+  of the network view. To <font class="keyword">select a sequence of nodes</font> 
+  you can hold down the SHIFT key, which enables additive selection semantics, 
+  and then proceed to select a set of nodes through the aforementioned techniques. 
+  Holding down the CTRL key enables XOR semantics.
+<p class="topicparagraph">&nbsp; 
+<table width="18%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr> 
+    <td><a href="#drag" onMouseover="change('drag','on')"><img src="shots/sn1.thumb.png" border="0" name="drag" alt="Clicking & Holding Left Mouse Button and Dragging to Select More Nodes"></a></td>
+  </tr>
+  <tr> 
+    <td><font size="2"><center>Clicking & Holding Left Mouse Button &amp; Dragging to Select 
+      Nodes </center></font></td>
+  </tr>
+</table>
+<p class="topicparagraph">&nbsp; 
+</body>
+</html>

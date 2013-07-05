@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>SamIam User Documentation - Query Monitors</title>
+<link rel="stylesheet" type="text/css" href="topics.css" />
+<meta name="author" content="Keith Cascio">
+<meta name="author" content="modified by Denis Zaloznyy">
+<script language="JavaScript">
+<!--
+if (document.images) {
+    imageon = new Image();
+    imageon.src = "shots/monitors1.png"; 
+    imageoff = new Image();
+    imageoff.src = "shots/monitors1.thumb.png";
+    image2on = new Image();
+    image2on.src = "shots/monitors2.png"; 
+    image2off = new Image();
+    image2off.src = "shots/monitors2.thumb.png";	
+}
+  
+function change(image,ext) {
+    if (document.images)
+	if(ext == 'on')
+		if(image == 'm1'){
+        	document.images[image].src = imageon.src;
+		document.images['m2'].src = image2off.src;}
+		else if(image == 'm2'){
+        	document.images[image].src = image2on.src;
+		document.images['m1'].src = imageoff.src;}
+}
+//--></script>
+</head>
+<body>
+<h2 class="topictitle"><font face="Arial, Helvetica, sans-serif" color="#CC0000">Query Monitors</font></h2>
+<p class="topicparagraph">SamIam’s primary means of displaying calculated posterior 
+  probabilities to the user is through what we call monitor windows. Since SamIam 
+  calculates posterior probabilities by compiling the belief network, monitor 
+  windows are only available in <font class="keyword"><a href="modes.html" target="_self">Query 
+  Mode</a></font>. Once you have entered <font class="keyword">Query Mode</font>, 
+  the simplest way to show a monitor window for a node is to right-click the mouse 
+  over the icon for that node in the network window, and select the menu item 
+  labeled "Monitor" from the context menu that pops up. 
+<p class="topicparagraph">&nbsp; 
+<table width="53%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td><center><font size="2">Right Clicking on a Node</font><br><a href="#m1" onMouseover="change('m1','on')"><img src="shots/monitors1.thumb.png" name='m1' border="0" alt="Right Clicking on a Node"></a>
+</center></td>
+</tr><tr>
+<td><br><font size="2"><center>Monitor Showing Percentage Values of Probabilities</font><br><a href="#m2" onMouseover="change('m2','on')"><img src="shots/monitors2.thumb.png" name='m2' border="0" alt="Monitor Showing Percentage Values of Probabilities"></a></center></td>
+
+  </tr>
+</table>
+<p class="topicparagraph">A monitor window consists of a list of the variable's 
+  states, each with a corresponding posterior probability.
+  The monitor window indicates the probability of each state visually with a bar 
+  graph icon, and also displays each probability as a percentage number. The visual 
+  appearance of the bar graph icon and the number of decimal digits for the percentage 
+  number are customizable by the user through the "<a href="preferences.html" target="_self">Preferences</a>" 
+  menu. 
+<p class="topicparagraph">
+The monitor windows can also be used to <font class="keyword">assert evidence</font>.
+This can be accomplished by first selecting the monitor window of the desired node
+and then by single-clicking on the desired state.
+Clicking on the state a second time retracts the evidence assertion.
+</p>
+<p class="topicparagraph">
+The "Query" menu and the tool bar also provide some convenient
+ways to display or hide multiple monitor windows at once.
+In the "Show Monitors" sub-menu of the "Query" menu, you will find
+a menu item that hides all visible monitor windows, one that makes a
+monitor window visible for every node, and one that makes a monitor window
+visible for every selected node.
+You can also accomplish showing monitors for selected nodes or hiding all
+monitors by clicking the corresponding tool bar buttons.
+</p>
+</body>
+</html>

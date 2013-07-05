@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>SamIam User Documentation - Working with Files</title>
+<link rel="stylesheet" type="text/css" href="topics.css" />
+<meta name="author" content="Keith Cascio">
+<meta name="author" content="modified by Denis Zaloznyy">
+
+<script language="JavaScript">
+<!--
+if (document.images) {
+    imageon = new Image();
+    imageon.src = "shots/wwf1.png";
+}
+  
+function change(image,ext) {
+    if (document.images)
+	if(ext == 'on')
+        document.images[image].src = imageon.src;
+}
+//--></script>
+
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+<h2 class="topictitle"><font face="Arial, Helvetica, sans-serif" color="#CC0000">Working with Files</font></h2>
+<p class="topicparagraph" align="left">SamIam supports opening files in <font class="keyword">six popular formats</font> 
+  for defining Bayesian networks:
+  the <a href="http://www.hugin.com" target="_blank">Hugin</a> <font class="keyword">.net</font> format (v5.7 and v6.*),
+  the <a href="http://www2.sis.pitt.edu/~genie/" target="_blank">Genie</a> <font class="keyword">.dsl</font> and <font class="keyword">.xdsl</font> formats,
+  the <a href="http://research.microsoft.com/adapt/MSBNx/" target="_blank">Interchange</a> <font class="keyword">.dsc</font> format used by the Microsoft Bayesian Network Toolkit,
+  the <a href="http://www.norsys.com/netica.html" target="_blank">Netica</a> <font class="keyword">.dne</font> format and
+  the <a href="http://www.noeticsystems.com/ergo/" target="_blank">Ergo</a> <font class="keyword">.erg</font> format.
+The program also supports some of the special editing features of these file formats.
+</p>
+<p class="topicparagraph" align="left">
+For Hugin .net files, SamIam supports
+editing and saving conditional probability table (CPT) values for discrete nodes,
+the structure of the network, and the appearance of the network.
+</p>
+<p class="topicparagraph">
+For each of the other five file types,
+including Genie .dsl files,
+SamIam supports editing and saving 
+only the CPT and noisy-or weight definitions. The types of nodes defined within 
+the Genie program that SamIam understands are "chance" nodes defined by CPT 
+or noisy-or semantics and nodes of type "deterministic." SamIam also understands 
+the Genie definitions of nodes as "target," "observation", and "auxiliary," 
+and the definition of states as "target" and/or "default," and Genie submodels. 
+</p>
+<table width="18%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr> 
+    <td height="145"> 
+      <div align="center"><a href="#files" onMouseover="change('files','on')"><img src="shots/wwf1.thumb.png" name="files" border="0" alt="Support for 6 File Types"></a></div>
+</td>
+  </tr>
+  <tr> 
+    <td> 
+      <div align="center"><font size="2">Support for 6 File Types</font></div>
+    </td>
+  </tr>
+</table>
+<p class="topicparagraph">&nbsp;</p>
+
+<p align="left">&nbsp;</p>
+</body>
+</html>

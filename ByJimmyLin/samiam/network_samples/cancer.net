@@ -1,0 +1,112 @@
+net
+{
+	HRUNTIME_Propagate_AutoNormal = "1";
+	HR_Font_Size = "-12";
+	HRUNTIME_Font_Size = "-12";
+	HR_Grid_GridSnap = "1";
+	HRUNTIME_Propagate_AutoSum = "1";
+	HR_Propagate_AutoNormal = "1";
+	node_size = (100.0 40.0);
+	HRUNTIME_Monitor_GraphPrecision = "100";
+	HR_Grid_GridShow = "0";
+	HR_Font_Name = "Arial";
+	HR_Compile_ApproxEpsilon = "0.00001";
+	HRUNTIME_Monitor_AutoUpdGraph = "0";
+	HRUNTIME_Font_Name = "Arial";
+	HRUNTIME_Font_Weight = "400";
+	HR_Font_Weight = "400";
+	HR_Monitor_AutoUpdGraph = "0";
+	HRUNTIME_Compile_Compress = "0";
+	HR_Compile_Compress = "0";
+	HRUNTIME_Compile_TriangMethod = "0";
+	HR_Grid_Y = "10";
+	HR_Grid_X = "10";
+	HR_Groups_GroupNames = "";
+	HR_Compile_Approximate = "0";
+	HRUNTIME_Compile_Approximate = "0";
+	HR_Compile_TriangMethod = "0";
+	HR_Color_DiscreteChance = "16";
+	HRUNTIME_Compile_ApproxEpsilon = "0.00001";
+	HR_Monitor_InitStates = "5";
+	HRUNTIME_Grid_GridSnap = "1";
+	HR_Color_ContinuosChance = "48";
+	HRUNTIME_Propagate_Auto = "0";
+	HR_Groups_GroupColors = "";
+	HR_Monitor_OpenGraph = "0";
+	HRUNTIME_Grid_GridShow = "0";
+	HR_Monitor_InitSD = "2";
+	HR_Groups_UserGroupsNo = "0";
+	HR_Color_Decision = "17";
+	HRUNTIME_Monitor_InitStates = "5";
+	HRUNTIME_Grid_Y = "10";
+	HRUNTIME_Grid_X = "10";
+	HR_Propagate_Auto = "0";
+	HR_Monitor_GraphPrecision = "100";
+	HRUNTIME_Font_Italic = "0";
+	HRUNTIME_Monitor_OpenGraph = "0";
+	HR_Font_Italic = "0";
+	HR_Propagate_AutoSum = "1";
+	HR_Color_Utility = "36";
+}
+
+node E
+{
+	states = ("Present" "Absent" );
+	ID = "E";
+	position = (414 -266);
+	label = "E: Severe Headaches";
+}
+node C
+{
+	states = ("Present" "Absent" );
+	ID = "C";
+	position = (255 -128);
+	label = "C:  Brain Tumor";
+}
+node A
+{
+	states = ("Present" "Absent" );
+	ID = "A";
+	position = (131 0);
+	label = "A:Metastatic Cancer";
+}
+node B
+{
+	states = ("Increased" "Not increased" );
+	ID = "B";
+	position = (0 -128);
+	label = "B: Serum Calcium";
+}
+node D
+{
+	states = ("Present" "Absent" );
+	ID = "D";
+	position = (147 -256);
+	label = "D: Coma";
+}
+potential ( E | C )
+{
+	data = ((	0.8	0.2	)
+		(	0.6	0.4	));
+}
+potential ( C | A )
+{
+	data = ((	0.2	0.8	)
+		(	0.05	0.95	));
+}
+potential ( A | )
+{
+	data = (	0.2	0.8	);
+}
+potential ( B | A )
+{
+	data = ((	0.8	0.2	)
+		(	0.2	0.8	));
+}
+potential ( D | C B )
+{
+	data = (((	0.8	0.2	)
+		(	0.8	0.2	))
+		((	0.8	0.2	)
+		(	0.05	0.95	)));
+}

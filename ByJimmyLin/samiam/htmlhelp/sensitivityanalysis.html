@@ -1,0 +1,213 @@
+<html>
+<head>
+<title>SamIam User Documentation - Sensitivity Analysis</title>
+<link rel="stylesheet" type="text/css" href="topics.css" />
+<meta name="author" content="Keith Cascio" />
+<meta name="author" content="Hei Chan" />
+<meta name="author" content="modified by Denis Zaloznyy">
+<script language="JavaScript">
+<!--
+if (document.images) {
+    imageon = new Image();
+    imageon.src = "shots/sa1.png"; 
+    imageoff = new Image();
+    imageoff.src = "shots/sa1.thumb.png";
+    image2on = new Image();
+    image2on.src = "shots/sa2.png"; 
+    image2off = new Image();
+    image2off.src = "shots/sa2.thumb.png";
+    image3on = new Image();
+    image3on.src = "shots/sa3.png"; 
+    image3off = new Image();
+    image3off.src = "shots/sa3.thumb.png";
+    image4on = new Image();
+    image4on.src = "shots/sa4.png"; 
+    image4off = new Image();
+    image4off.src = "shots/sa4.thumb.png";	
+}
+  
+function change(image,ext) {
+    if (document.images)
+	if(ext == 'on')
+		if(image == 'm1'){
+        	document.images[image].src = imageon.src;
+		document.images['m2'].src = image2off.src;
+		document.images['m3'].src = image3off.src;
+		document.images['m4'].src = image4off.src;}
+		else if(image == 'm2'){
+        	document.images[image].src = image2on.src;
+		document.images['m1'].src = imageoff.src;
+		document.images['m3'].src = image3off.src;
+		document.images['m4'].src = image4off.src;}
+		else if(image == 'm3'){
+        	document.images[image].src = image3on.src;
+		document.images['m1'].src = imageoff.src;
+		document.images['m2'].src = image2off.src;
+		document.images['m4'].src = image4off.src;}
+		else if(image == 'm4'){
+        	document.images[image].src = image4on.src;
+		document.images['m1'].src = imageoff.src;
+		document.images['m2'].src = image2off.src;
+		document.images['m3'].src = image3off.src;}
+}
+//--></script>
+</head>
+<body>
+<h2 class="topictitle"><font face="Arial, Helvetica, sans-serif" color="#CC0000">Sensitivity
+Analysis</font></h2>
+
+<p class="topicparagraph">
+SamIam's <font class="keyword">Sensitivity Analysis</font> is a powerful,
+user-friendly tool for analyzing the complex dependencies between
+variables in a Bayesian network and providing guidance to the belief
+engineer as he tweaks <font class="keyword">network parameter</font>
+values.
+It suggests single and multiple
+<font class="keyword">parameter changes</font>
+that satisfy a user-specified
+<font class="keyword">query constraint</font>.
+The tool allows the user to define constraints in a
+natural, intuitive style that mimics the kinds of objectives he will
+formulate in the course of assessing query results.  The power of the tool
+results from the fact that the kinds of parameter changes one
+can make in order to satisfy an intuitive constraint are rarely intuitive
+or obvious.  Furthermore, the tool helps the user to make the smallest
+possible change to a parameter value that can satisfy the constraint.
+</p>
+<p class="topicparagraph">
+Invoke the Sensitivity Analysis tool by selecting its menu item from the
+"Query" menu or by clicking the ">=" button in the tool bar.  If you know
+the variable or variables on which you would like to specify the
+constraint, you can select them in the network view first, and the
+sensitivity tool will automatically choose the variables you select from
+the event drop-down boxes.  The user defines the constraint he would like
+to satisfy in the upper part of the sensitivity window.  Once he runs the
+sensitivity engine, the tool will display the parameter change suggestions
+in a table that occupies the lower part of the sensitivity window.
+</p>
+<p class="topicparagraph">
+The sensitivity analysis tool allows the user to constrain the posterior
+probability of one or two events.  The simplest form of a constraint is to
+ask that the posterior probability of a single event,
+one variable assuming a specified
+state, be above, equal to, or below a specified number.  Under the label
+"Event," use the drop down boxes to select a variable from the network for
+which no evidence has been asserted, and a state of that variable.  You
+will notice that the current posterior probabilities for each state will
+appear in the state-selection drop down box.  To complete the constraint,
+choose a mathematical comparison operator from {<=, =, >=}, and enter a
+number in the text box.
+</p>
+<p class="topicparagraph">
+To constrain the values of two posterior probabilities for the same
+variable, or two posterior probabilities for two different variables,
+check the "Constrain Two Events" checkbox.  You will notice that the upper
+part of the sensitivity window changes to accommodate the definitions of
+two events.  In this case, the user must select a mathematical operator
+defining the relation between the two events using the drop down box
+between the two event selection modules.  The user can choose either "-"
+for the difference relation, or "/" for the ratio relation.  Again,
+specify the two events using the event selection modules, and complete
+the constraint by selecting a mathemetical comparison and entering a
+number in the text box.
+</p>
+<p class="topicparagraph">
+After completing the constraint, click the "Start sensitivity
+analysis" button to start sensitivity analysis. For large networks, it may take
+a few seconds for sensitivity analysis to run. After sensitivity analysis
+completes, the tool will display a table of suggested changes that satisfy the
+constraint, or will notify you that either the constraint is already satisfied,
+or is unsatisfiable.
+There are two types of suggested changes:
+<font class="keyword">single parameter</font>
+and
+<font class="keyword">multiple parameter (single CPT)</font>,
+which display in separate tabs.
+The single parameter suggestions table
+consists of rows which represent each of the
+suggested changes. It initially consists of three columns:<br />
+1. The "Parameter" column identifies each of the parameter values the tool suggests
+changing.<br />
+2. The "Current value" column shows the current parameter value.<br />
+3. The "Suggested value" column displays the suggested interval that the paramter
+value should be in.<br />
+</p>
+<p class="topicparagraph">
+You can display more detailed table information by selecting
+the "Show table details" checkbox. Two extra columns will appear in the table.
+<br />
+4. The "Absolute change" column displays an interval that describes the
+<font class="keyword">absolute change</font>
+from the current parameter value to the suggested new value. The
+absolute change is defined as |q - p| if p is the current parameter value and
+q is the new parameter value.
+<br />
+5. The "Log-odds change" column displays an interval that describes the
+<font class="keyword">log-odds change</font>
+from the current parameter value to the suggested new value. The
+log-odds change is defined as |ln (q / 1-q) - ln (p / 1-p)| if p is the current
+parameter value and q is the new parameter value. We believe that the log-odds
+change is a better representation of the amount of change than the absolute
+change. For details of the log-odds change, refer to the paper
+<a href="http://reasoning.cs.ucla.edu/publications/numbers.ps">"When do Numbers Really Matter?"</a>
+by Chan and Darwiche in Proceedings of UAI-01.
+</p>
+<p class="topicparagraph">
+The multiple parameter suggestions tab contains a list of network variables
+the CPTs for which the sensitivity tool suggests editing,
+along with the log-odds change for each suggestion.
+Clicking on a variable in the list displays the CPT for that variable on the right,
+with the suggested changes indicated in red.
+</p>
+<p class="topicparagraph">
+The next step for the user is to inspect the list of suggestions and
+choose one he would like to test.  The table itself provides some sorting
+functions that help the user find the best suggestion.  To sort the
+suggestions alphabetically by parameter, click the column header for the
+"Parameter" column.  Similarly, to sort the suggestions by the magnitude
+of the absolute change or log-odds change, click the appropriate column
+headers.  These latter sorts may be especially useful for finding the
+suggestion that minimizes the parameter change in the network.
+</p>
+<p class="topicparagraph">
+The Sensitivity Analysis tool provides two convenience
+functions to help the user make a parameter change, once he has decided on a
+suggestion to try out. First, select the row in the suggestion list
+corresponding to the suggestion you would like to follow. Now, clicking the
+"Edit" button will automatically display the conditional probability table that
+pertains to the suggestion.
+If you would like the tool to automatically
+change the CPT by the minimum amount necessary to satisfy your constraint,
+click the "Adopt Change" button. After adopting a change automatically, you
+will notice that the "Edit" and "Adopt Change" buttons become disabled, since
+changing more than one parameter would have the effect of upsetting the original
+constraint.
+</p>
+<table width="51%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+<td><center><font size="2">1. Navigating to Sensitivity Analysis</font>
+<br><a href="#m1" onMouseover="change('m1','on')">
+<img src="shots/sa1.thumb.png" name='m1' border="0" alt="1. Navigating to Sensitivity Analysis"></a>
+</center></td></tr>
+
+<tr><td><br><center><font size="2">2. Constraining Events and Starting Sensitivity</font>
+<br><a href="#m2" onMouseover="change('m2','on')">
+<img src="shots/sa2.thumb.png" name='m2' border="0" alt="2. Constraining Events and Starting Sensitivity"></a>
+</center></td></tr>
+
+<tr><td><br><center><font size="2">3. Showing Details</font>
+<br><a href="#m3" onMouseover="change('m3','on')">
+<img src="shots/sa3.thumb.png" name='m3' border="0" alt="3. Showing Details"></a>
+</center></td></tr>
+
+<tr><td><br><center><font size="2">4. Result of Adopting Change</font>
+<br><a href="#m4" onMouseover="change('m4','on')">
+<img src="shots/sa4.thumb.png" name='m4' border="0" alt="4. Result of Adopting Change"></a>
+</center></td>
+
+</tr>
+</table>
+<p>&nbsp;</p>
+<p class="topicparagraph">&nbsp;</p>
+</body>
+</html>

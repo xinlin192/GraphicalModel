@@ -1,0 +1,66 @@
+/*
+	Keith Cascio
+	090402
+*/
+
+body
+{
+	background-color: rgb(255,255,255);
+	color: rgb(0,0,0);
+}
+
+.topictitle
+{
+	font-weight: bold;
+	font-size: 20;
+	/*
+	font-family: arial;
+	font-style: bold;
+	color: orange;
+	*/
+}
+
+.topicparagraph:first-letter
+{
+	margin-left: 2em;
+}
+
+.topicparagraph:first-line
+{
+	/*
+	text-indent: 50;
+	padding-left: 50;
+	*/
+	/*
+	font-variant: small-caps;
+	font-weight: bold;	
+	font-family: arial;
+	font-size: 20;
+	font-style: bold;
+	color: orange;
+	*/
+}
+
+.keyword
+{
+	font-weight: bold;
+}
+
+/*
+
+a:link
+{
+	color: rgb(0,0,0);
+	text-decoration:none;
+}
+a:visited
+{
+	color: rgb(0,0,0);
+	text-decoration:none;
+} 
+a:active 
+{
+	color: rgb(102,255,0);
+	text-decoration:none;
+}
+*/

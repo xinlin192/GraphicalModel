@@ -1,0 +1,252 @@
+<html>
+<head>
+<title>SamIam User Documentation - Editing Network Structure</title>
+<link rel="stylesheet" type="text/css" href="topics.css" />
+<meta name="author" content="Mike Zaloznyy">
+<meta name="author" content="modified by Denis Zaloznyy">
+<script language="JavaScript">
+<!--
+if (document.images) {
+    imageon = new Image();
+    imageon.src = "shots/ens1.png"; 
+    imageoff = new Image();
+    imageoff.src = "shots/ens1.thumb.png";
+    image2on = new Image();
+    image2on.src = "shots/ens2.png"; 
+    image2off = new Image();
+    image2off.src = "shots/ens2.thumb.png";
+    image3on = new Image();
+    image3on.src = "shots/ens3.png"; 
+    image3off = new Image();
+    image3off.src = "shots/ens3.thumb.png";
+    image4on = new Image();
+    image4on.src = "shots/ens4.png"; 
+    image4off = new Image();
+    image4off.src = "shots/ens4.thumb.png";
+
+    image5on = new Image();
+    image5on.src = "shots/ens5.png"; 
+    image5off = new Image();
+    image5off.src = "shots/ens5.thumb.png";
+    image6on = new Image();
+    image6on.src = "shots/ens6.png"; 
+    image6off = new Image();
+    image6off.src = "shots/ens6.thumb.png";
+    image7on = new Image();
+    image7on.src = "shots/ens7.png"; 
+    image7off = new Image();
+    image7off.src = "shots/ens7.thumb.png";
+    image8on = new Image();
+    image8on.src = "shots/ens8.png"; 
+    image8off = new Image();
+    image8off.src = "shots/ens8.thumb.png";		
+}
+  
+function change(image,ext) {
+    if (document.images)
+	if(ext == 'on')
+		if(image == 'm1'){
+        	document.images[image].src = imageon.src;
+		document.images['m2'].src = image2off.src;
+		document.images['m3'].src = image3off.src;
+		document.images['m4'].src = image4off.src;
+		document.images['m5'].src = image5off.src;
+		document.images['m6'].src = image6off.src;
+		document.images['m7'].src = image7off.src;
+		document.images['m8'].src = image8off.src;}
+		else if(image == 'm2'){
+        	document.images[image].src = image2on.src;
+		document.images['m1'].src = imageoff.src;
+		document.images['m3'].src = image3off.src;
+		document.images['m4'].src = image4off.src;
+		document.images['m5'].src = image5off.src;
+		document.images['m6'].src = image6off.src;
+		document.images['m7'].src = image7off.src;
+		document.images['m8'].src = image8off.src;}
+
+		else if(image == 'm3'){
+        	document.images[image].src = image3on.src;
+		document.images['m1'].src = imageoff.src;
+		document.images['m2'].src = image2off.src;
+		document.images['m4'].src = image4off.src;
+		document.images['m5'].src = image5off.src;
+		document.images['m6'].src = image6off.src;
+		document.images['m7'].src = image7off.src;
+		document.images['m8'].src = image8off.src;}
+
+		else if(image == 'm4'){
+        	document.images[image].src = image4on.src;
+		document.images['m1'].src = imageoff.src;
+		document.images['m2'].src = image2off.src;
+		document.images['m3'].src = image3off.src;
+		document.images['m5'].src = image5off.src;
+		document.images['m6'].src = image6off.src;
+		document.images['m7'].src = image7off.src;
+		document.images['m8'].src = image8off.src;}
+
+		else if(image == 'm5'){
+        	document.images[image].src = image5on.src;
+		document.images['m1'].src = imageoff.src;
+		document.images['m2'].src = image2off.src;
+		document.images['m3'].src = image3off.src;
+		document.images['m4'].src = image4off.src;
+		document.images['m6'].src = image6off.src;
+		document.images['m7'].src = image7off.src;
+		document.images['m8'].src = image8off.src;}
+
+		else if(image == 'm6'){
+        	document.images[image].src = image6on.src;
+		document.images['m1'].src = imageoff.src;
+		document.images['m2'].src = image2off.src;
+		document.images['m3'].src = image3off.src;
+		document.images['m4'].src = image4off.src;
+		document.images['m5'].src = image5off.src;
+		document.images['m7'].src = image7off.src;
+		document.images['m8'].src = image8off.src;}
+
+		else if(image == 'm7'){
+        	document.images[image].src = image7on.src;
+		document.images['m1'].src = imageoff.src;
+		document.images['m2'].src = image2off.src;
+		document.images['m3'].src = image3off.src;
+		document.images['m4'].src = image4off.src;
+		document.images['m5'].src = image5off.src;
+		document.images['m6'].src = image6off.src;
+		document.images['m8'].src = image8off.src;}
+
+		else if(image == 'm8'){
+        	document.images[image].src = image8on.src;
+		document.images['m1'].src = imageoff.src;
+		document.images['m2'].src = image2off.src;
+		document.images['m3'].src = image3off.src;
+		document.images['m4'].src = image4off.src;
+		document.images['m5'].src = image5off.src;
+		document.images['m6'].src = image6off.src;
+		document.images['m7'].src = image7off.src;}
+}
+//--></script>
+</head>
+<body>
+<h2 class="topictitle"><font face="Arial, Helvetica, sans-serif" color="#CC0000">Editing Network Structure</font></h2>
+<p class="topicparagraph">While in the edit mode, the user can
+  modify the existing network structure. Among the options SamIam provides in the
+  network menu is <font class="keyword">adding a new node</font> to the existing
+  network.
+  Once the user initiates the addition of a variable,
+  SamIam asks him to choose a location for the new node. At any time,
+  the user can right click and cancel the operation. Once he chooses the location for the
+  new node,
+  SamIam drops a new node there with default properties.
+  The state names for each variable must be distinct in the context of that variable,
+  but can
+  be the same as those of another node. The default number of states for the new
+  node is two, but the user can insert or append an arbitrary number.
+  Besides creating
+  new nodes, it is also possible to <font class="keyword">delete any number of
+  nodes</font> at once. To <a href="selectingnodes.html" target="_self">select
+  several nodes</a> at once, hold the &quot;Shift&quot; key on the keyboard and
+  select the nodes with the mouse. Then, choose the option &quot;delete selected
+  nodes&quot; from the network menu. When SamIam deletes the node,
+  all of the edges
+  connecting the node to other nodes are deleted as well. It is also possible
+  to <font class="keyword">delete one edge</font> at a time. To do that, select
+  the option &quot;delete an edge&quot; from the network menu, select the node
+  where the edge begins and then, correspondingly, select the node where the edge
+  ends. <font class="keyword">New edges</font> can be added to the network in
+  a similar manner with a restriction prohibiting adding edges that create
+  cyclic networks. </p>
+<p class="topicparagraph">
+For networks that do not contain any information
+  about the positions of the nodes, all of the nodes may appear on top of each
+  other. Such an appearance is rather difficult for the user since they would
+  then manually have to move the nodes around to see the network. To
+  remedy this inconvenience,
+  SamIam provides the
+  &quot;<font class="keyword">Auto-Arrange</font>&quot; tool in the
+  Edit menu. The user enters appropriate numbers for the spacing between the
+  nodes and approximate network width. The nodes in the network, which are at
+  exactly the same position, are then rearranged automatically. In addition to
+  all of the options above, SamIam provides the user with an option of <font class="keyword">creating
+  a new network</font> from scratch and saving it in *.net (version 5.7) format.
+  The user can build a network of arbitrary size using the options in the network menu
+  described above. <br>
+</p>
+<p class="topicparagraph">&nbsp;</p>
+<table width="52%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+
+<td><center><font size="2">Adding New Node</font>
+<br><a href="#m1" onMouseover="change('m1','on')">
+<img src="shots/ens1.thumb.png" name='m1' border="0" alt="Adding New Node"></a>
+</center></td></tr>
+
+<tr><td><br><center><font size="2">Adding Edge to Attach New Node</font>
+<br><a href="#m2" onMouseover="change('m2','on')">
+<img src="shots/ens2.thumb.png" name='m2' border="0" alt="Adding Edge to Attach New Node"></a>
+</center></td></tr>
+
+<tr><td><br><center><font size="2">Deleting Node</font>
+<br><a href="#m3" onMouseover="change('m3','on')">
+<img src="shots/ens3.thumb.png" name='m3' border="0" alt="Deleting Node"></a>
+</center></td></tr>
+
+<tr><td><br><center><font size="2">Node Deleted from Network</font>
+<br><a href="#m4" onMouseover="change('m4','on')">
+<img src="shots/ens4.thumb.png" name='m4' border="0" alt="Node Deleted from Network"></a>
+</center></td>
+  </tr>
+</table>
+
+<p class="topicparagraph">&nbsp;</p>
+<p class="topicparagraph"><b>Subnetworks copy and paste</b> are also possible
+  in edit mode. Select a subnetwork and choose option &quot;Copy&quot; under the &quot;Edit&quot;
+  dropdown menu. To cut a subnetwork, choose option &quot;cut selected subnetwork,&quot;
+  and a prompt will confirm deletion of selected nodes and edges. Select &quot;Paste&quot;
+  to paste the subnetwork with edges and probabilities and specify location of new
+  subnetwork. With &quot;Paste&quot;, all node properties and edges are kept intact
+  in copied subnetwork. With &quot;Paste Special&quot;, the user is allowed to choose
+  to paste edges and/or probabilities. These functions can also be accessed as
+  menu buttons. Ctrl-C (copy), ctrl-X (cut), ctrl-V (paste), and ctrl-P (paste
+  special) keyboard hotkeys are enabled for these tasks.</p>
+<p class="topicparagraph">
+  In case the network becomes too large for screen,
+  the &quot;View&quot; menu provides zoom-in and zoom-out features. To return
+  to default zoom setting, select &quot;Zoom Actual Pixels (1/1).&quot; Selecting
+  &quot;Zoom Fit on Screen&quot; allows SamIam to choose best-fit zoom setting
+  for the network on the screen. Select &quot;Refresh&quot; to refresh network
+  display.</p>
+<p class="topicparagraph">
+  The &quot;<b>Network Information</b>&quot; feature under the
+  &quot;Tools&quot; menu displays quantitative facts about the open network. Clicking
+  it reveals the number of nodes, edges, minimum domain cardinality, and maximum domain
+  cardinality.
+</p>
+<p class="topicparagraph">&nbsp;</p>
+
+<table width="52%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+<td><center><font size="2">Pasting a sub-network and its corresponding menu button</font>
+<br><a href="#m5" onMouseover="change('m5','on')">
+<img src="shots/ens5.thumb.png" name='m5' border="0" alt="Pasting a sub-network and its corresponding menu button"></a>
+</center></td></tr>
+
+<tr><td><br><center><font size="2">Paste-Special prompts to include edges and/or probabilities</font>
+<br><a href="#m6" onMouseover="change('m6','on')">
+<img src="shots/ens6.thumb.png" name='m6' border="0" alt="Paste-Special prompts to include edges and/or probabilities"></a>
+</center></td></tr>
+
+<tr><td><br><center><font size="2">Network information diplayed</font>
+<br><a href="#m7" onMouseover="change('m7','on')">
+<img src="shots/ens7.thumb.png" name='m7' border="0" alt="Network information diplayed"></a>
+</center></td></tr>
+
+<tr><td><br><center><font size="2">SamIam network window zoomed in</font>
+<br><a href="#m8" onMouseover="change('m8','on')">
+<img src="shots/ens8.thumb.png" name='m8' border="0" alt="SamIam network window zoomed in"></a>
+</center></td>
+  </tr>
+
+</table>
+<p class="topicparagraph">&nbsp;</p>
+</body>
+</html>

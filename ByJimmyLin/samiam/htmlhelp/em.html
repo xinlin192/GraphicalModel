@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>SamIam User Documentation - EM Learning</title>
+<link rel="stylesheet" type="text/css" href="topics.css" />
+<meta name="author" content="Keith Cascio">
+<meta name="author" content="modified by Denis Zaloznyy">
+<script language="JavaScript">
+<!--
+if (document.images) {
+    imageon = new Image();
+    imageon.src = "shots/em1.png";
+}
+  
+function change(image,ext) {
+    if (document.images)
+	if(ext == 'on')
+        document.images[image].src = imageon.src;
+}
+//--></script>
+</head>
+<body>
+<h2 class="topictitle"><font face="Arial, Helvetica, sans-serif" color="#CC0000">
+Expectation Maximization (EM) Learning
+</font></h2>
+<p class="topicparagraph">
+SamIam's
+<font class="keyword">EM Learning</font>
+tool allows the belief engineer to learn the conditional
+probabilities in a network based on data, using the
+<font class="keyword">Expectation Maximization (EM) algorithm </font>.
+The data must be in the form of a Hugin "case file,"
+each line of which represents
+one instantiation of the variables in the network.
+</p>
+<p class="topicparagraph">
+The first step in using the EM Learning tool is
+to design a network structure that includes a node for every variable
+mentioned in the case file.  Also, you must define state names that
+correspond to the state names mentioned in the case file.  Generally, you
+will initialize the network with uniform probability distributions over
+each variable.
+</p>
+<p class="topicparagraph">
+Next, open the EM Learning tool by selecting its menu
+item from the "Query" menu or clicking the "EM" button on the tool bar. In the
+EM Learning dialog window, use the "Browse" button to select the Hugin format
+case file you would like to use. You may also choose to modify the default values
+for the
+<font class="keyword">convergence threshold</font>
+and the <font class="keyword">maximum number of iterations</font>.
+When you have chosen acceptable parameters, click
+"OK" to run the EM algorithm. SamIam will make a copy of the open network and
+learn the CPT parameters based on the case file you selected.
+</p>
+<p class="topicparagraph">
+SamIam 2.2 also provides the function of generating simulated case files.
+A simulated case file is a Hugin format case file generated artificially from
+a Bayesian network for which the user has already defined conditional probabilities.
+To <font class="keyword">simulate data</font>, select "Generate Simulated Cases"
+from the "Tools" menu.
+You can choose the number of cases
+to write to the file and the
+percentage of the data SamIam will destroy at random.
+</p>
+<p class="topicparagraph">&nbsp;
+<table width="19%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td><a href="#em" onMouseover="change('em','on')"><img src="shots/em1.thumb.png" name='em' border="0" alt="Expectation Maximization Learning"></a></td>
+  </tr>
+  <tr>
+    <td><center><font size="2">Expectation Maximization Learning</font></center></td>
+  </tr>
+</table>
+<p class="topicparagraph">&nbsp;
+</body>
+</html>

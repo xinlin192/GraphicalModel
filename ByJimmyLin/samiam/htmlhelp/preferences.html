@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>SamIam User Documentation - Preferences</title>
+<link rel="stylesheet" type="text/css" href="topics.css" />
+<meta name="author" content="Mike Zaloznyy">
+<meta name="author" content="modified by Denis Zaloznyy">
+<script language="JavaScript">
+<!--
+if (document.images) {
+    imageon = new Image();
+    imageon.src = "shots/pref1.png"; 
+    imageoff = new Image();
+    imageoff.src = "shots/pref1.thumb.png";
+    image2on = new Image();
+    image2on.src = "shots/pref2.png"; 
+    image2off = new Image();
+    image2off.src = "shots/pref2.thumb.png";	
+}
+  
+function change(image,ext) {
+    if (document.images)
+	if(ext == 'on')
+		if(image == 'm1'){
+        	document.images[image].src = imageon.src;
+		document.images['m2'].src = image2off.src;}
+		else if(image == 'm2'){
+        	document.images[image].src = image2on.src;
+		document.images['m1'].src = imageoff.src;}
+}
+//--></script>
+</head>
+<body>
+<h2 class="topictitle"><font face="Arial, Helvetica, sans-serif" color="#CC0000">Preferences</font></h2>
+<p class="topicparagraph">The Preferences menu lets the user
+  customize the network display and tree display, as well 
+  as some global SamIam parameters. The user can set the colors for manually set 
+  evidence in the tree and has the option to display the probabilities for nodes in the
+  tree by type.
+  Besides color changes, the user can select the decimal precision displayed 
+  by the monitors and can choose to use node sizes from the file or to override 
+  them. The default size for a node is 80 by 40 pixels, but a maximum width and 
+  height of 9999 are allowed.
+  Preview windows at the bottom of the network
+  and monitor preference menus
+  allow the user to judge the look of the network with the new 
+  options applied. Finally, the global parameters allow the user to select node labels 
+  instead of names if those are available, and also allows him to switch to different 
+  Java "Look and Feels". Among the latter are Windows look and feel, Metal and CDE/Motif 
+  (typical Unix look and feel). To reset to default preferences settings, select 
+  option &quot;Reset Defaults.&quot;
+</p>
+<table width="59%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+<td><center><font size="2">Editing Preference Window</font><br>
+<a href="#m1" onMouseover="change('m1','on')">
+<img src="shots/pref1.thumb.png" name='m1' border="0" alt="Editing Preference Window"></a></td>
+</tr><tr>    
+<td><br><center><font size="2">Changing the Look and Feel</font><br><a href="#m2" onMouseover="change('m2','on')">
+<img src="shots/pref2.thumb.png" name='m2' border="0" alt="Changing the Look and Feel"></a></td>
+    </tr>
+</table>
+<p class="topicparagraph">&nbsp;</p>
+</body>
+</html>

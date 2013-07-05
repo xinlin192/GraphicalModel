@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>SamIam User Documentation - MPE</title>
+<link rel="stylesheet" type="text/css" href="topics.css" />
+<meta name="author" content="Keith Cascio">
+<meta name="author" content="modified by Denis Zaloznyy">
+<script language="JavaScript">
+<!--
+if (document.images) {
+    imageon = new Image();
+    imageon.src = "shots/mpe1.png"; 
+    imageoff = new Image();
+    imageoff.src = "shots/mpe1.thumb.png";
+    image2on = new Image();
+    image2on.src = "shots/mpe2.png"; 
+    image2off = new Image();
+    image2off.src = "shots/mpe2.thumb.png";	
+}
+  
+function change(image,ext) {
+    if (document.images)
+	if(ext == 'on')
+		if(image == 'm1'){
+        	document.images[image].src = imageon.src;
+		document.images['m2'].src = image2off.src;}
+		else if(image == 'm2'){
+        	document.images[image].src = image2on.src;
+		document.images['m1'].src = imageoff.src;}
+}
+//--></script>
+</head>
+<body>
+<h2 class="topictitle"><font face="Arial, Helvetica, sans-serif" color="#CC0000">
+Most Probable Explanation (MPE)
+</font></h2>
+<p class="topicparagraph">
+To calculate the most probable explanation for an open
+belief network, open the MPE tool by selecting its menu item from the "Query"
+menu or by clicking the "MPE" button on the tool bar.
+MPE is available only using the shenoy-shafer algorithm.
+The MPE window displays
+a table containing an instantiation of every variable
+in the network on which you have not asserted evidence,
+as well as
+the probability of the instantiation conditioned on the evidence,
+and jointed with the evidence.
+</p>
+<p class="topicparagraph">&nbsp;
+<table width="54%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>
+<center><font size="2">Navigating to MPE Function</font>
+<br><a href="#m1" onMouseover="change('m1','on')">
+<img src="shots/mpe1.thumb.png" name='m1' border="0" alt="Navigating to MPE Function"></a>
+</center></td></tr>
+
+
+<tr>
+<td><br><font size="2"><center>MPE Window</font><br>
+<a href="#m2" onMouseover="change('m2','on')">
+<img src="shots/mpe2.thumb.png" name='m2' border="0" alt="MPE Window"></a></center>
+</td>
+</tr>
+</table>
+<p class="topicparagraph">&nbsp;
+</body>
+</html>

@@ -1,0 +1,152 @@
+<html>
+<head>
+<title>SamIam User Documentation - Code Bandit</title>
+<link rel="stylesheet" type="text/css" href="topics.css" />
+<meta name="author" content="Keith Cascio">
+<meta name="author" content="modified by Denis Zaloznyy">
+<script language="JavaScript">
+<!--
+if(self.location==top.location)self.location="index.html?codebandit.html";
+
+if (document.images) {
+    imageon = new Image();
+    imageon.src = "shots/codebandit1.png";
+}
+
+function change(image,ext) {
+    if (document.images)
+	if(ext == 'on')
+        document.images[image].src = imageon.src;
+}
+//--></script>
+</head>
+<body>
+<h2 class="topictitle"><font face="Arial, Helvetica, sans-serif" color="#CC0000">Code Bandit</font></h2>
+<p class="topicparagraph" align="left">
+Do you need to write Java code that calls our inference library API (inflib.jar)?
+<b>Code Bandit will get you started quickly!</b>
+It's a tool that writes smart sample code for you, based on settings you configure in SamIam.
+For example, if you need use our library to build Bayesian network models,
+Code Bandit can write a sample program that shows you what methods to call.
+Code Bandit can also write programs that demonstrate how to execute queries,
+like Pr(e) and MAP,
+on existing models.
+Code Bandit is intended to make it <b>easy</b> and <b>fun</b> for Java programmers to learn how to
+write code based on our inference library.
+</p>
+<p class="topicparagraph" align="left">
+Since Code Bandit can write several different kinds of example programs,
+there are several places in SamIam from which you can run it.
+To invoke Code Bandit for the purposes of a specific query, like MAP,
+you can run it directly from the associated tool.
+Right now, the Sensitivity, MAP, MPE and EM Learning tools support Code Bandit,
+and we will add Code Bandit support to the other tools soon.
+To invoke Code Bandit to write other kinds of example programs,
+select one of the options from the menu at Tools->Code Bandit.
+You have three options:
+<ol>
+<li>encode the open network</li>
+<li>encode a probability query, which includes marginal probabilities and the probability of evidence, Pr(e)</li>
+<li>write a program that demonstrates creating and editing conditional probability tables</li>
+</ol>
+</p>
+<p class="topicparagraph" align="left">
+When Code Bandit opens, it will show a brief description of the output code.
+It will also suggest a name for the output file, but you can change it.
+Code Bandit will also present you with options specific to the
+kind of example program you chose to write.
+Configuring these options gives you greater control
+over exactly what Java code you want as output.
+For example, if you are a novice to our inference library,
+you probably want to select the option that
+includes descriptive comments in the code,
+which will help you understand what each line accomplishes.
+But if you are a veteran user, you may want to leave the
+comments out and simply output the required Java code uncommented.
+If you are unsure about the meaning of a particular code option,
+you can click its name to see a helpful explanation in the right-hand panel.
+</p>
+<p class="topicparagraph" align="left">
+Code Bandit can also provide you with a list of SamIam features that influence
+the output code.
+To see it, click on "Actions->Describe Dependencies".
+For example, if you invoked Code Bandit from the MAP Tool,
+the output code will depend on all the MAP Tool settings.
+</p>
+<p class="topicparagraph" align="left">
+For your convenience, Code Bandit organizes the programming process into
+four steps:
+</p>
+<ol>
+<b>
+<li>Write</li>
+<li>View</li>
+<li>Compile</li>
+<li>Run</li>
+</b>
+</ol>
+<p class="topicparagraph" align="left">
+When you are ready to generate the example Java code,
+click on step 1, "Write Code".
+Writing code is Code Bandit's main job,
+and it is the only task Code Bandit can accomplish
+without interacting with your operating system.
+Once you write the code,
+you probably want to view it in your
+favorite text editor, which is step 2.
+The first time you click "View Code",
+you will need
+to browse for the editor program
+you want Code Bandit to invoke.
+Step 3 is to compile the code using the Java compiler "javac".
+You must have javac installed on your system for this to work.
+If you are in doubt, download and install the Java Development Kit (JDK) from
+<a href="http://java.sun.com/j2se/1.5.0/download.jsp">Sun's web site</a>.
+When you click "Compile Java Class",
+SamIam will search for javac.
+Code Bandit directs javac's output to the SamIam console window,
+and a popup window will appear when the compilation is finished.
+Step 4 is to run the compiled java class using the java runtime "java".
+If you are running SamIam, you have java installed!
+Code Bandit directs the example program's output to the SamIam console window.
+If compilation or execution fails because SamIam cannot find
+"javac" or "java", you can manually enter their locations
+by selecting "Tools->Compile Settings" or "Tools->Run Settings", respectively.
+</p>
+<p class="topicparagraph" align="left">
+But that's not all the help Code Bandit
+can give you.
+Although Code Bandit gives you the convenience of
+viewing, compiling and running
+example programs from within SamIam, you may prefer to
+perform those operations from a command shell,
+like the MS-DOS command shell on Windows or the Bash shell
+on Linux.  This may prove especially useful
+once you start tinkering with the examples, extending them
+and adding your own functionality.
+To help you work with code in the command shell context,
+Code Bandit's script writing wizard
+will create scripts that handle
+compiling and running java programs.
+To use the script writing wizard, select
+"Tools->Create Scripts" from the Code Bandit
+menu.
+</p>
+<br />
+<p class="topicparagraph" align="left">&nbsp;
+<div align="center">
+  <table width="25%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+        <div align="left"><center><a href="#codebandit_01" onMouseover="change('codebandit_01','on')"><img src="shots/codebandit1.thumb.png" name="codebandit_01" border="0" alt=""></a></center></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div align=center><font size="2">Using Code Bandit to encode a model</font></div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

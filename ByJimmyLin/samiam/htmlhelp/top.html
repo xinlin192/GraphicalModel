@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Untitled Document</title>
+
+<script language="javascript" src="search.js"></script>
+<script language="javascript" src="data.js"></script>
+<script language=javascript>
+
+function opensearch()
+{
+
+search();
+top.mainframe.document.writeln(output);
+top.mainframe.document.close(output);
+
+}
+
+</script>
+
+<style>#SEARCHOUT { visibility:show; position:relative;}</style>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" background="images/background_01.gif">
+
+<table width="98%" border="0" cellspacing="1" cellpadding="0">
+  <tr> 
+    <td width="23%" height="32">&nbsp;</td>
+    <td width="45%" height="32"> 
+      <FORM  NAME="searchengine" onSubmit="opensearch()">
+        Keywords: 
+        <INPUT TYPE="text"  NAME="keywords" VALUE=""  MAXLENGTH=40>
+        <INPUT TYPE="SUBMIT" NAME="go" VALUE="Search">
+      </FORM>
+    </td>
+    <td width="9%" height="32">&nbsp;</td>
+    <td width="23%" height="32"><img src="images/samiamhelp.gif" width="226" height="43" align="absbottom" usemap="#Map" border="0"></td>
+  </tr>
+</table>
+
+
+
+
+
+<map name="Map"> 
+  <area shape="rect" coords="9,10,149,44" href="http://reasoning.cs.ucla.edu/samiam/" alt="UCLA Automated Reasoning Group: SAMIAM" title="UCLA Automated Reasoning Group: SAMIAM" target="_blank">
+</map>
+</body>
+</html>

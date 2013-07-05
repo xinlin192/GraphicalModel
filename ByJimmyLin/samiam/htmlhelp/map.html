@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>SamIam User Documentation - MAP</title>
+<link rel="stylesheet" type="text/css" href="topics.css" />
+<meta name="author" content="Keith Cascio">
+<meta name="author" content="modified by Denis Zaloznyy">
+<script language="JavaScript">
+<!--
+if (document.images) {
+    imageon = new Image();
+    imageon.src = "shots/map1.png";
+    imageoff = new Image();
+    imageoff.src = "shots/map1.thumb.png";
+    image2on = new Image();
+    image2on.src = "shots/map2.png";
+    image2off = new Image();
+    image2off.src = "shots/map2.thumb.png";
+}
+
+function change(image,ext) {
+    if (document.images)
+	if(ext == 'on')
+		if(image == 'm1'){
+        	document.images[image].src = imageon.src;
+		document.images['m2'].src = image2off.src;}
+		else if(image == 'm2'){
+        	document.images[image].src = image2on.src;
+		document.images['m1'].src = imageoff.src;}
+}
+//--></script>
+</head>
+<body>
+
+<h2 class="topictitle"><font face="Arial, Helvetica, sans-serif" color="#CC0000">
+Maximum a Posterior (MAP) Hypothesis
+</font></h2>
+
+<p class="topicparagraph">
+SamIam’s MAP tool provides an interface with which to define
+and calculate an answer to a Maximum a Posteriori query.
+Invoke the tool by selecting its menu item from the "Tools" menu or by clicking
+the "MAP" button on the tool bar.
+</p>
+<p class="topicparagraph">
+The basic requirement for defining a MAP query is to
+select the subset of network variables over which you would like to calculate
+MAP.
+Do so using the Variable Selection Tool, found in the Tools menu.
+</p>
+
+<table width="50%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+
+<td>
+<center><font size="2">Navigating to MAP Function</font>
+<br><a href="#m1" onMouseover="change('m1','on')">
+<img src="shots/map1.thumb.png" name='m1' border="0" alt="Navigating to MAP Function"></a>
+</center></td></tr>
+
+
+<tr>
+<td><br><font size="2"><center>MAP Window</font><br>
+<a href="#m2" onMouseover="change('m2','on')">
+<img src="shots/map2.thumb.png" name='m2' border="0" alt="MAP Window"></a></center>
+</td>
+</tr>
+</table>
+
+
+
+<p class="topicparagraph">
+Since for complex networks the exact answer to MAP can be hard,
+SamIam’s MAP tool allows the user to choose between calculating an approximation or
+attempting to calculate the exact answer.
+The advanced
+user can control the behavior of the approximation algorithm. You can set the
+search method, the initialization method, and a value for the maximum number
+of search steps. By default, the MAP tool sets these to the best values for
+an average user’s query. For the details of the MAP approximation SamIam uses,
+refer to the paper
+<a href="http://reasoning.cs.ucla.edu/publications/mapapprox.ps">"Approximating MAP using stochastic local search"</a>
+by Park and Darwiche in the proceedings of UAI-01.
+If you choose to attempt an exact solution, you must specify a time limit on
+the length of the computation.  As part of the results, SamIam will inform you whether
+or not it succeeded in calculating an exact answer within the time limit.
+</p>
+<p class="topicparagraph">
+Once you have chosen the desired set of MAP variables,
+and if necessary, edited the algorithmic settings, click the "Update" button to
+run the MAP query.  When the query finishes, the results will appear in the table
+that occupies the right-hand part of the MAP window.  The table indicates an
+instantiation for each one of the selected MAP variables, and the joint and conditioned
+probabilities of the instantiation with the evidence.
+</p>
+</body>
+</html>

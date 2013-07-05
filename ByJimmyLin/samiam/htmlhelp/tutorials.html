@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>Get Started with SamIam</title>
+<link rel="stylesheet" type="text/css" href="topics.css" />
+<meta name="author" content="Keith Cascio">
+<meta name="author" content="modified by Denis Zaloznyy">
+</head>
+
+<body>
+<h2>
+<font face="Arial, Helvetica, sans-serif" color="#CC0000">Get Started with SamIam</font>
+</h2>
+<p class="topicparagraph">
+Welcome to the SamIam program!  If you are a new user of SamIam,
+and you have access to a Windows computer,
+the first thing we recommend you to do is to view the
+<a href="tutorials/tutorial_intro_wm7_10fps.wmv"><b>introductory video tutorial</b></a>
+- it gives a basic 
+introduction to the program, including: the
+differences between Edit Mode and Query Mode, how to select nodes, how to
+view posterior probabilities, how to set evidence, the evidence tree, and
+some information about supported file formats.
+After you have gotten familiar with the basics of the program,
+you will probably want to view the following tutorials that we
+have geared toward some of the more important tools that come with SamIam:
+</p>
+
+<p>
+<a href="tutorials/tutorial_create_wm7_5fps.wmv"><b>Creating Networks</b></a>
+- covers the functions SamIam provides to edit the structure
+of Bayesian networks, including:
+adding and deleting variable nodes
+and adding and deleting dependencies between variables (edges).
+</p>
+<p><a href="tutorials/tutorial_inference_wm7_5fps.wmv"><b>Inference</b></a>
+  - introduces the four algorithms SamIam furnishes
+  and
+  explains what types of queries each algorithm supports.
+  Also,
+  introduces the new Evidence Impact tool.
+</p>
+<p><a href="tutorials/tutorial_sensitivity_wm7_5fps.wmv"><b>Sensitivity Analysis</b></a> 
+  - illustrates every feature of the Sensitivity
+  Analysis tool through three natural examples, including:
+  one-variable and two-variable constraints,
+  unsatisfiable constraints,
+  single-parameter and multiple-parameter suggestions,
+  and
+  how to automatically adopt suggested changes.</p>
+<p><a href="tutorials/tutorial_timespace_wm7_5fps.wmv"><b>Time-Space Tradeoffs</b></a>
+  - an example using
+  the recursive conditioning algorithm.
+  Provides guidance on how to
+  best exploit the any-space features,
+  and
+  how to calculate Pr(e) using the least possible memory.
+</p>
+<p><a href="tutorials/tutorial_mapmpe_wm7_5fps.wmv"><b>MAP/MPE</b></a> - shows how to 
+  use both the Maximum a Posteriori (MAP) tool and
+  and Most Probable Explanation (MPE) tool, and uses an intuitive example as
+  the basis for a discussion of the differences between MAP and MPE.</p>
+<p><a href="tutorials/tutorial_em_wm7_5fps.wmv"><b>EM Learning</b></a> - shows how to use 
+  the SamIam EM Learning tool to learn CPT
+  parameters from a Hugin format case file,
+  and how to generate simulated case file data.
+</p>
+
+<p class="topicparagraph">
+If you would like to use SamIam to work with belief networks created
+using the
+<a href="http://www2.sis.pitt.edu/~genie/" target="_blank">Genie tool</a>, we hope that you find useful the 
+<a href="tutorials/tutorial_genie_files_wm7_5fps.wmv"><b>Genie Files video tutorial</b></a>
+- an in-depth 
+discussion of what features of Genie files
+SamIam does and does not support, including: diagnosis node types,
+submodels, noisy or semantics, and some information on trouble-shooting
+SamIam's Genie file support.  Also, please refer to
+<a href="workingwithfiles.html">Working with Files</a>.
+</p>
+<p class="topicparagraph">
+We deliver SamIam with invocation scripts that pass
+necessary arguments to the Java virtual machine:
+"samiam.bat" on Windows and "runsamiam"
+on Solaris/Linux.  In particular, these files pass the
+argument '-Xmx' to Java in order to increase the
+maximum size of the runtime memory allocation
+pool to 512 megabytes.
+You may choose to edit your run script in order to
+increase or decrease the memory available to Java.
+Java’s default memory allocation, 64 megabytes,
+is insufficient to compile larger, more complex networks.  
+</p>
+
+</body>
+</html>
