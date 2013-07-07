@@ -1,0 +1,146 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@7810c73f";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@158936ae";
+	node_size = (130 55);
+}
+
+node H
+{
+	states = ("Excellent" "Acceptable" "Unacceptable" );
+	position = (309 -276);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable3";
+	label = "paymentHistory";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node A
+{
+	states = ("Old" "Young" );
+	position = (87 -275);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable4";
+	label = "age";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node RDI
+{
+	states = ("High" "Low" );
+	position = (443 -410);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable2";
+	label = "rDebtsToIncome";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node R
+{
+	states = ("Reliable" "Unreliable" );
+	position = (220 -419);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable7";
+	label = "reliability";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node income
+{
+	states = ("High" "Low" );
+	position = (593 -279);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable0";
+	label = "income";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node future_income
+{
+	states = ("High" "Low" );
+	position = (670 -408);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable6";
+	label = "future_income";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node credit_worthiness
+{
+	states = ("Worthy" "Unworthy" );
+	position = (422 -558);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable5";
+	label = "credit_worthiness";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node assets
+{
+	states = ("Large" "Small" );
+	position = (824 -279);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "assets";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+potential ( H | A RDI )
+{
+	data = (((	0.3	0.6	0.1	)
+		(	0.6	0.3	0.1	))
+		((	0.1	0.6	0.3	)
+		(	0.3	0.5	0.2	)));
+}
+potential ( A | )
+{
+	data = (	0.3	0.7	);
+}
+potential ( RDI | )
+{
+	data = (	0.4	0.6	);
+}
+potential ( R | H A )
+{
+	data = (((	0.6666666666666666	0.3333333333333333	)
+		(	0.6153846153846154	0.3846153846153846	))
+		((	0.6153846153846154	0.3846153846153846	)
+		(	0.5454545454545454	0.45454545454545453	))
+		((	0.4444444444444445	0.5555555555555556	)
+		(	0.37499999999999994	0.625	)));
+}
+potential ( income | )
+{
+	data = (	0.3	0.7	);
+}
+potential ( future_income | income assets )
+{
+	data = (((	0.9	0.1	)
+		(	0.6	0.4	))
+		((	0.7	0.3	)
+		(	0.1	0.9	)));
+}
+potential ( credit_worthiness | R future_income RDI )
+{
+	data = ((((	0.6428571428571429	0.35714285714285715	)
+		(	0.6875	0.3125	))
+		((	0.5833333333333334	0.4166666666666667	)
+		(	0.6428571428571429	0.35714285714285715	)))
+		(((	0.5833333333333334	0.4166666666666667	)
+		(	0.6428571428571429	0.35714285714285715	))
+		((	0.4444444444444445	0.5555555555555556	)
+		(	0.5833333333333334	0.4166666666666667	))));
+}
+potential ( assets | income )
+{
+	data = ((	0.8	0.2	)
+		(	0.2	0.8	));
+}
