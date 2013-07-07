@@ -39,7 +39,11 @@ for i = 1:size(E, 1),
             % Hint: You might find it helpful to use IndexToAssignment
             %       and SetValueOfAssignment
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            
+
+            assignments = IndexToAssignment(1:length(F(j).val), F(j).card);
+            col = find(F(j).var == v);
+            tmprows = (assignments(:, col) ~= x);
+            F(j).val(tmprows) = 0;
             
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
