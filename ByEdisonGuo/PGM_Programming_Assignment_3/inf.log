@@ -1,0 +1,2 @@
+Starting BP[tol=1e-009,maxiter=10000,maxtime=1.#INF,verbose=1,logdomain=1,updates=SEQMAX,damping=0,inference=SUMPROD]...converged in 11 passes (-50.024 seconds).
+LBP posterior decoding (highest prob assignment in marginal):
