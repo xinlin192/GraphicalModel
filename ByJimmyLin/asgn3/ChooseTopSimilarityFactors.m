@@ -23,7 +23,17 @@ if (length(allFactors) <= F)
 end
 
 % Your code here:
-factors = allFactors; %%% REMOVE THIS LINE
+%factors = allFactors; %%% REMOVE THIS LINE
+
+sorting = [];
+n = length(allFactors);
+for i = 1:n,
+    value = allFactors(i).val(1);
+    sorting = [sorting; i value allFactors(i).var];
+end
+sorting = sortrows(sorting, [-2 3 4]);
+indx = sorting(1:F, 1);
+factors = allFactors(indx);
 
 end
 
