@@ -13,13 +13,14 @@
 
 function A = MHSWTrans(A, G, F, variant)
 
+
 %%%%%%%%%%%%%% Get Proposal %%%%%%%%%%%%%%
 % Prune edges from q_list if the nodes don't have the same current value
 q_list = G.q_list;
-q_keep_indx = find(A(q_list(:, 1)) == A(q_list(:, 2)));
+q_keep_indx = A(q_list(:, 1)) == A(q_list(:, 2));
 q_list = q_list(q_keep_indx, :);
 % Select edges at random based on q_list
-selected_edges_q_list_indx = find(q_list(:, 3) > rand(size(q_list,1), 1));
+selected_edges_q_list_indx = q_list(:, 3) > rand(size(q_list,1), 1);
 selected_edges = q_list(selected_edges_q_list_indx, 1:2);
 % Compute connected components over selected edges
 SelEdgeMat = sparse([selected_edges(:,1)'; selected_edges(:,2)'],...
@@ -49,6 +50,8 @@ if variant == 1
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    logR = ones(1, d) * log(d);
 elseif variant == 2
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % YOUR CODE HERE
@@ -59,8 +62,10 @@ elseif variant == 2
     % before implementing this, one of the generated
     % data structures may be useful in implementing this section
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    logR = BlockLogDistribution(selected_vars, G, F, A);
+   
 else
     disp('WARNING: Unrecognized Swendsen-Wang Variant');
 end
@@ -85,7 +90,12 @@ for i = 1:size(G.q_list, 1)  % Iterate through *all* edges, not just the ones we
     end
 end
 
-p_acceptance = 0.0;
+log_Q_ratio = log_QY_ratio + logR(old_value) - logR(new_value);
+
+p_acceptance = exp(LogProbOfJointAssignment(F, A_prop) - ...
+    LogProbOfJointAssignment(F, A) + log_Q_ratio);
+
+%p_acceptance = 0.0;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % YOUR CODE HERE
 % Compute acceptance probability

@@ -76,7 +76,7 @@ if bSwendsenWang
               % Specify the q_{i,j}'s for Swendsen-Wang for variant 1
               %
               %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+              q_ij = 0.5;
               %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
           elseif strcmp(TransName, 'MHSwendsenWang2')
               %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -85,6 +85,15 @@ if bSwendsenWang
               %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
               %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+              
+              uIdx = find(edge_factor.var == u(i));
+              iVal = 1;
+              if uIdx > 1
+                iVal = cumsum(edge_factor.card(1:uIdx-1)) + 1;
+              end
+              
+              q_ij = sum(edge_factor.val(iVal:(iVal + edge_factor.card(uIdx) - 1))) / sum(edge_factor.val);
+              
           else
               disp('WARNING: unrecognized Swendsen-Wang name');
           end
@@ -123,6 +132,8 @@ for i = 1:max_iter
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    all_samples(i+1, :) = Trans(A, G, F);
 end
 
 M=[];

@@ -56,6 +56,18 @@ LogBS = zeros(1, d);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+vars = 1:length(A);
+
+assignments = repmat(A, d, 1);
+assignments(:, V) = repmat((1:d)', 1, length(V));
+
+factorIdx = unique([G.var2factors{V}]);
+for iFct = factorIdx
+    [~, varIdx, ~] = intersect(vars, F(iFct).var);
+    val = GetValueOfAssignment(F(iFct), assignments(:, varIdx));
+    LogBS = LogBS + log(val);
+end
+
 % Re-normalize to prevent underflow when you move back to probability space
 LogBS = LogBS - min(LogBS);
 

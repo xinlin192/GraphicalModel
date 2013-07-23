@@ -42,7 +42,7 @@ for i = 1:length(V)
         estimated_marginal = estimated_marginal ./ ...
             repmat(sum(estimated_marginal, 2), 1, size(estimated_marginal, 2));
         hold on;
-        plot(estimated_marginal, '-', 'LineWidth', 2);
+        plot(estimated_marginal, '-', 'LineWidth', 2); tname = '';
         title(['Est marginals for entry ' num2str(i) ' of samples for ' tname])
         if exist('M') == 1
             plot([1; size(estimated_marginal, 1)], [M.val; M.val], '--', 'LineWidth', 3);

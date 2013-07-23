@@ -14,13 +14,8 @@ function A = MHUniformTrans(A, G, F)
 % Draw proposed new state from uniform distribution
 A_prop = ceil(rand(1, length(A)) .* G.card);
 
-p_acceptance = 0.0;
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% YOUR CODE HERE
-% Compute acceptance probability
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+p_acceptance = exp(LogProbOfJointAssignment(F, A_prop) - ...
+    LogProbOfJointAssignment(F, A));
 
 % Accept or reject proposal
 if rand() < p_acceptance
