@@ -35,5 +35,52 @@ j = 0;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+% Derive the size of square matrix representing objective clique tree
+SIZE = size(P.edges);
+% Local variable x, y, z, k
+% traverse all the entries of the clique-tree matrix with
+% pariticular starting search point
+for x = SIZE(1):-1:1, 
+    for y = 1:SIZE(2),
+        if P.edges(x,y) == 0,
+            continue; % ignore the unconnected clique pairs
+        else 
+            % for connected pairs
+            if isMessageEmpty(messages(x,y)),
+                %% this sepset has no message passing currently but connected
+                if isready(x, y, P, messages) == 1, 
+                    % clique x is ready, message passing from x to y,
+                    i = x; j = y; return;
+                end
+            end
+        end
+    end
+end
+end
 
-return;
+% subroutine to evaluate the readiness of certain clique
+function readiness = isready(from, to, P, messages)
+% initially treat readiness negative
+readiness = 0;
+% size of the square matrix 
+SIZE = size(P.edges);
+% loop through all cliques
+for x = 1:SIZE(1),
+    if P.edges(x, from) == 0 || x == from || x == to,
+        % avoid computation for non-existing clique connection and
+        % avoid self message passing and 
+        % no need to examine the message in reverse direction
+        continue;
+    else
+        if isMessageEmpty(messages(x, from)),
+            return; % still lack of one incoming message
+        else
+            continue; % pass current examination
+        end
+    end
+end
+% incoming messages are sufficient to make this clique ready
+% to pass message from 'from' clique to 'to' clique
+readiness = 1;
+end
+

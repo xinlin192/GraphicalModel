@@ -45,5 +45,18 @@ B.val = [];
 % Correctly set up and populate the factor values of B
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% set the cardinality to the correct value
+B.card = A.card(mapB);
+% initialize the factor score first
+B.val = repmat(-inf, prod(B.card), 1);
+% set factor value to the correct value
+for i = 1:prod(A.card)
+    asgnA = IndexToAssignment(i, A.card);
+    asgnB = asgnA(mapB);
+    if all(GetValueOfAssignment(B, asgnB) < A.val(i))
+        B.val(AssignmentToIndex(asgnB, B.card)) = A.val(i);
+    end
+end
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 end

@@ -37,6 +37,32 @@ MESSAGES = repmat(struct('var', [], 'card', [], 'val', []), N, N);
 %
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+if isMax == 0, % sum-product message passing for probability inference
+    while 1,
+        [i, j] = GetNextCliques(P, MESSAGES);
+        if i == 0 && j == 0,
+            break;
+        end
+        % accumulator for product of incoming messages
+        MAcc = struct('var', [], 'card', [], 'val', []);  
+        % derive the product of those incoming messages
+        for x = 1:N,
+            if P.edges(x,i) ~= 0 && x ~= i && x ~= j, % connection exist
+                MAcc = FactorProduct(MAcc, MESSAGES(x,i));
+            end
+        end
+        % multiply the initial potential
+        MAcc = FactorProduct(MAcc, P.cliqueList(i));
+        % sum out variables that are not in the sepset
+        V = intersect(P.cliqueList(i).var, P.cliqueList(j).var);
+        MAcc = ComputeMarginal(V, MAcc, []); % with normalisation
+        MESSAGES(i,j) = MAcc;
+    end
+else % max-sum message passing for map inference 
+
+    return;
+end
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % YOUR CODE HERE
@@ -45,6 +71,21 @@ MESSAGES = repmat(struct('var', [], 'card', [], 'val', []), N, N);
 % Compute the final potentials for the cliques and place them in P.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+IP = P.cliqueList; % temporarily record the initial potentials
+for k = 1:N, % loop through all the cliques
+    beta =  struct('var', [], 'card', [], 'val', []); % initialise the clique belief
+    for x = 1:N, % loop through all the neighbours
+        if P.edges(x, k) ~= 0 && x ~= k,
+            beta = FactorProduct(beta, MESSAGES(x, k));
+        end
+    end
+    % multiply the initial potential
+    beta = FactorProduct(beta, IP(k));
+    % sum out the variables not in the clique
+    beta = FactorMarginalization(beta, setdiff(beta.var, IP(k).var));
+    % update the clique beliefs (modified potential)
+    P.cliqueList(k) = beta;
+end
 
+end
 
-return

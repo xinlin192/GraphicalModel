@@ -24,4 +24,29 @@ M = [];
 % Implement Exact and MAP Inference.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+if isMax == 0
+    % for marginal probability inference, initialise the resulted array
+    M = repmat(struct('var', [], 'card', [], 'val', []), 1);
+    % create the inferred clique tree based on given factors
+    P = CreateCliqueTree(F, E); 
+    % apply message passing algorithm to reach calibration
+    P = CliqueTreeCalibrate(P, 0);
+    % derive the number of cliques
+    N = size(P.cliqueList);
+    % initialise the set of variables whose marginal has been derived
+    V = [];
+    % traverse beliefs of all established cliques
+    for i = 1:N,
+        % compute for all solved variables in accessed clique
+        for v = setdiff(P.cliqueList(i).var, V), 
+            % marginalise and normalise
+            M(v) = ComputeMarginal([v], [P.cliqueList(i)], E);
+        end
+    end
+else
+    % for MAP inference
+    return;
+end
+
+
 end
