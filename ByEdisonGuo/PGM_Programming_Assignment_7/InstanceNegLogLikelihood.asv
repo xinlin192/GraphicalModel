@@ -154,10 +154,6 @@ function [nll, grad] = InstanceNegLogLikelihood(X, y, theta, modelParams)
   
     end
     
-    for i = 1:length(P.cliqueList)
-        P.cliqueList(i).val = P.cliqueList(i).val ./ sum(P.cliqueList(i).val);
-    end
-   
     modelFeatureCounts = zeros(size(theta));
     sampleFeatureCounts = zeros(size(theta));
     
@@ -175,9 +171,9 @@ function [nll, grad] = InstanceNegLogLikelihood(X, y, theta, modelParams)
                 y(feature.var(2)) == feature.assignment(2);
             
             iClq = feature.var(1);
-            idx = AssignmentToIndex(feature.assignment, P.cliqueList(iClq).card);
+            idx = AssignmentToIndex(y(feature.var), P.cliqueList(iClq).card);
             modelFeatureCounts(feature.paramIdx) = ...
-                modelFeatureCounts(feature.paramIdx) + ...
+               modelFeatureCounts(feature.paramIdx) + ...
                 P.cliqueList(iClq).val(idx);
         end
         
