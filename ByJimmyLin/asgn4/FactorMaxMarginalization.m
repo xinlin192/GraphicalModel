@@ -47,7 +47,7 @@ B.val = [];
 
 % set the cardinality to the correct value
 B.card = A.card(mapB);
-% initialize the factor score first
+% initialize the factor score to invalid value first
 B.val = repmat(-inf, prod(B.card), 1);
 % set factor value to the correct value
 for i = 1:prod(A.card)

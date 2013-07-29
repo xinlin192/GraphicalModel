@@ -26,5 +26,13 @@ A = [];
 % Compute the best assignment for variables in the network.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% number of the max-marginals; also number of variables
+N = length(M);
+
+% traverse through all variables' max-marginals to decode the assignment
+for i = 1:N,
+    A(i) = find( M(i).val == max(M(i).val) );
+end
+
 end
 
