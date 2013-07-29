@@ -56,67 +56,29 @@ function [nll, grad] = InstanceNegLogLikelihood(X, y, theta, modelParams)
     %       We have halfway-modified CliqueTreeCalibrate; complete our implementation 
     %       if you want to use it to compute logZ.
     
-    
-    nVar = size(X, 1);
-    K = modelParams.numHiddenStates;
-    
-    factors = repmat(struct('var', [], 'card', [], 'val', []), 1, 2*nVar - 1);
-    pairVar2factors = zeros(nVar);
-    for i = 1:nVar
-        factors(i).var = i;
-        factors(i).card = K;
-        factors(i).val = zeros(1, K);
-        
-        if i < nVar
-            j = i + nVar;
-            pairVar2factors(i, i+1) = j;
-            factors(j).var = [i i+1];
-            factors(j).card = [K K];
-            factors(j).val = zeros(1, K^2);
-        end
-    end
-    
-    for i = 1:length(featureSet.features)
-        feature = featureSet.features(i);
-        if length(feature.var) == 1
-            factors(feature.var).val(feature.assignment) = ...
-                factors(feature.var).val(feature.assignment) + theta(feature.paramIdx);
-        elseif length(feature.var) == 2
-            iFct = pairVar2factors(feature.var(1), feature.var(2));
-            idx = AssignmentToIndex(feature.assignment, factors(iFct).card);
-            factors(iFct).val(idx) = factors(iFct).val(idx) + theta(feature.paramIdx);
-        end
-    end
-    
-    for i = 1:length(factors)
-        factors(i).val = exp(factors(i).val);
-    end
-    
-    P.cliqueList = repmat(struct('var', [], 'card', [], 'val', []), 1, nVar - 1);
-    
-    for i = 1:nVar - 1
-        iFct = pairVar2factors(i, i+1);
-        P.cliqueList(i) = factors(iFct);
-        
-        if i <= 1
-            vars = P.cliqueList(i).var;
-        else
-            vars = P.cliqueList(i).var(2:end);
-        end
-      
-        for j = vars
-            P.cliqueList(i) = FactorProduct(P.cliqueList(i), factors(j));
-        end
-    end
-   
-    P.edges = zeros(nVar-1);
-    for i = 1:nVar - 2
-        P.edges(i, i+1) = 1;
-        P.edges(i+1, i) = 1;
-    end
-    
+ 
+    P = ConstructCliqueTree(X, theta, modelParams, featureSet);
     [P, logZ] = CliqueTreeCalibrate(P, 0);
     
+    weightedFeatureCounts = computeCostFeatureCounts(y, theta, featureSet);
+   
+    regularisationCost = 0.5 * modelParams.lambda * sum(theta.^2);
+    nll = logZ - weightedFeatureCounts + regularisationCost;
+    
+    nVar = size(X, 1);
+    M = computeMarginals(nVar, P, 0);
+    
+    P = normaliseCliqueMarginals(P);
+   
+    [modelFeatureCounts, sampleFeatureCounts] = ...
+    computeGradientFeatureCounts(size(theta), y, M, P, featureSet);
+  
+    regularisationGradient = modelParams.lambda * theta;
+    grad = modelFeatureCounts - sampleFeatureCounts + regularisationGradient;
+
+end
+
+function weightedFeatureCounts = computeCostFeatureCounts(y, theta, featureSet)
     weightedFeatureCounts = 0;
     for i = 1:length(featureSet.features)
         feature = featureSet.features(i);
@@ -132,34 +94,19 @@ function [nll, grad] = InstanceNegLogLikelihood(X, y, theta, modelParams)
         weightedFeatureCounts = weightedFeatureCounts + ...
                 theta(feature.paramIdx) * ind;
     end
-    
-    regularisationCost = 0.5 * modelParams.lambda * sum(theta.^2);
-    
-    nll = logZ - weightedFeatureCounts + regularisationCost;
-    
-    M = repmat(struct('var', [], 'card', [], 'val', []), length(P.cliqueList), 1);
-    for iVar = 1:nVar
-        for iClq = 1:length(P.cliqueList)
+end
 
-            if any(P.cliqueList(iClq).var == iVar)
-
-                marginalisedVars = setdiff(P.cliqueList(iClq).var, iVar);
-               
-                M(iVar) = FactorMarginalization(P.cliqueList(iClq), marginalisedVars);
-                M(iVar).val = M(iVar).val / sum(M(iVar).val);
-               
-                break;
-            end
-        end
-  
-    end
-    
+function P = normaliseCliqueMarginals(P)
     for i = 1:length(P.cliqueList)
         P.cliqueList(i).val = P.cliqueList(i).val ./ sum(P.cliqueList(i).val);
     end
-   
-    modelFeatureCounts = zeros(size(theta));
-    sampleFeatureCounts = zeros(size(theta));
+end
+
+function [modelFeatureCounts, sampleFeatureCounts] = ...
+    computeGradientFeatureCounts(paramSize, y, M, P, featureSet)
+
+    modelFeatureCounts = zeros(paramSize);
+    sampleFeatureCounts = zeros(paramSize);
     
     for i = 1:length(featureSet.features)
         feature = featureSet.features(i);
@@ -184,9 +131,4 @@ function [nll, grad] = InstanceNegLogLikelihood(X, y, theta, modelParams)
         sampleFeatureCounts(feature.paramIdx) = ...
             sampleFeatureCounts(feature.paramIdx) + ind;
     end
-    
-    regularisationGradient = modelParams.lambda * theta;
-    
-    grad = modelFeatureCounts - sampleFeatureCounts + regularisationGradient;
-
 end
