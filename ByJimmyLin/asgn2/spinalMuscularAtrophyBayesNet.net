@@ -1,0 +1,185 @@
+net
+{
+	node_size = (90 36);
+}
+
+node IraParent1Gene1Copy
+{
+	lablel = "IraParent1Gene1Copy";
+	position = (1040 400);
+	states = ("M" "m");
+}
+
+node IraParent1Gene2Copy
+{
+	lablel = "IraParent1Gene2Copy";
+	position = (1170 400);
+	states = ("B" "b");
+}
+
+node IraParent2Gene1Copy
+{
+	lablel = "IraParent2Gene1Copy";
+	position = (1300 400);
+	states = ("M" "m");
+}
+
+node IraParent2Gene2Copy
+{
+	lablel = "IraParent2Gene2Copy";
+	position = (1430 400);
+	states = ("B" "b");
+}
+
+node IraPhenotype
+{
+	lablel = "IraPhenotype";
+	position = (1235 300);
+	states = ("SpinalMuscularAtrophy" "NoSpinalMuscularAtrophy");
+}
+
+node JamesParent1Gene1Copy
+{
+	lablel = "JamesParent1Gene1Copy";
+	position = (520 200);
+	states = ("M" "m");
+}
+
+node JamesParent1Gene2Copy
+{
+	lablel = "JamesParent1Gene2Copy";
+	position = (650 200);
+	states = ("B" "b");
+}
+
+node JamesParent2Gene1Copy
+{
+	lablel = "JamesParent2Gene1Copy";
+	position = (780 200);
+	states = ("M" "m");
+}
+
+node JamesParent2Gene2Copy
+{
+	lablel = "JamesParent2Gene2Copy";
+	position = (910 200);
+	states = ("B" "b");
+}
+
+node JamesPhenotype
+{
+	lablel = "JamesPhenotype";
+	position = (705 100);
+	states = ("SpinalMuscularAtrophy" "NoSpinalMuscularAtrophy");
+}
+
+node RobinParent1Gene1Copy
+{
+	lablel = "RobinParent1Gene1Copy";
+	position = (0 400);
+	states = ("M" "m");
+}
+
+node RobinParent1Gene2Copy
+{
+	lablel = "RobinParent1Gene2Copy";
+	position = (130 400);
+	states = ("B" "b");
+}
+
+node RobinParent2Gene1Copy
+{
+	lablel = "RobinParent2Gene1Copy";
+	position = (260 400);
+	states = ("M" "m");
+}
+
+node RobinParent2Gene2Copy
+{
+	lablel = "RobinParent2Gene2Copy";
+	position = (390 400);
+	states = ("B" "b");
+}
+
+node RobinPhenotype
+{
+	lablel = "RobinPhenotype";
+	position = (195 300);
+	states = ("SpinalMuscularAtrophy" "NoSpinalMuscularAtrophy");
+}
+
+potential (IraParent1Gene1Copy |)
+{
+	data = (0.200000 0.800000);
+}
+
+potential (IraParent1Gene2Copy |)
+{
+	data = (0.300000 0.700000);
+}
+
+potential (IraParent2Gene1Copy |)
+{
+	data = (0.200000 0.800000);
+}
+
+potential (IraParent2Gene2Copy |)
+{
+	data = (0.300000 0.700000);
+}
+
+potential (IraPhenotype | IraParent1Gene1Copy IraParent1Gene2Copy IraParent2Gene1Copy IraParent2Gene2Copy)
+{
+	data = (0.999590 0.000410 0.858149 0.141851 0.997762 0.002238 0.524979 0.475021 0.858149 0.141851 0.014774 0.985226 0.524979 0.475021 0.002732 0.997268 0.997762 0.002238 0.524979 0.475021 0.987872 0.012128 0.167982 0.832018 0.524979 0.475021 0.002732 0.997268 0.167982 0.832018 0.000500 0.999500);
+}
+
+potential (JamesParent1Gene1Copy | IraParent1Gene1Copy IraParent2Gene1Copy)
+{
+	data = (1.000000 0.000000 0.500000 0.500000 0.500000 0.500000 0.000000 1.000000);
+}
+
+potential (JamesParent1Gene2Copy | IraParent1Gene2Copy IraParent2Gene2Copy)
+{
+	data = (1.000000 0.000000 0.500000 0.500000 0.500000 0.500000 0.000000 1.000000);
+}
+
+potential (JamesParent2Gene1Copy | RobinParent1Gene1Copy RobinParent2Gene1Copy)
+{
+	data = (1.000000 0.000000 0.500000 0.500000 0.500000 0.500000 0.000000 1.000000);
+}
+
+potential (JamesParent2Gene2Copy | RobinParent1Gene2Copy RobinParent2Gene2Copy)
+{
+	data = (1.000000 0.000000 0.500000 0.500000 0.500000 0.500000 0.000000 1.000000);
+}
+
+potential (JamesPhenotype | JamesParent1Gene1Copy JamesParent1Gene2Copy JamesParent2Gene1Copy JamesParent2Gene2Copy)
+{
+	data = (0.999590 0.000410 0.858149 0.141851 0.997762 0.002238 0.524979 0.475021 0.858149 0.141851 0.014774 0.985226 0.524979 0.475021 0.002732 0.997268 0.997762 0.002238 0.524979 0.475021 0.987872 0.012128 0.167982 0.832018 0.524979 0.475021 0.002732 0.997268 0.167982 0.832018 0.000500 0.999500);
+}
+
+potential (RobinParent1Gene1Copy |)
+{
+	data = (0.200000 0.800000);
+}
+
+potential (RobinParent1Gene2Copy |)
+{
+	data = (0.300000 0.700000);
+}
+
+potential (RobinParent2Gene1Copy |)
+{
+	data = (0.200000 0.800000);
+}
+
+potential (RobinParent2Gene2Copy |)
+{
+	data = (0.300000 0.700000);
+}
+
+potential (RobinPhenotype | RobinParent1Gene1Copy RobinParent1Gene2Copy RobinParent2Gene1Copy RobinParent2Gene2Copy)
+{
+	data = (0.999590 0.000410 0.858149 0.141851 0.997762 0.002238 0.524979 0.475021 0.858149 0.141851 0.014774 0.985226 0.524979 0.475021 0.002732 0.997268 0.997762 0.002238 0.524979 0.475021 0.987872 0.012128 0.167982 0.832018 0.524979 0.475021 0.002732 0.997268 0.167982 0.832018 0.000500 0.999500);
+}
+
