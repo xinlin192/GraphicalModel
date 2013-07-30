@@ -34,7 +34,31 @@ end;
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% total number of clusters
+N = length(F);
 
+% initialization
+P.clusterList = repmat(struct('var',[], 'card', [], 'val', []), N, 1);
+P.edges = zeros(N, N);
+
+% fill in the information for pairwise cluster
+for i = 1:N,
+    P.clusterList(i) = F(i);
+end
+
+% fill in the information for univariate cluster
+for i = 1:N,
+    for j = 1:N,
+        if length(F(i).var) == 1 && length(F(j).var) == 2
+            its = intersect(F(i).var, F(j).var);
+            if ~isempty(its),
+                % modify the adjacency matrix (note the symmetry)
+                P.edges(i, j) = 1;
+                P.edges(j, i) = 1;
+            end
+        end
+    end
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

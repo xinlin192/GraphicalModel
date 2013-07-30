@@ -24,8 +24,25 @@ thresh = 1.0e-6;
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+thresh = 1.0e-6;
 
+N = size(mNew, 1);
+
+diff = -Inf;
+
+for i = 1:N
+    for j = 1:N
+        if ~isempty(mNew(i, j).val) && ~isempty(mOld(i, j).val)
+            maxDiff = max(abs(mNew(i, j).val - mOld(i, j).val));
+            if maxDiff > diff
+                diff = maxDiff;
+            end
+        end
+    end
+end
+
+converged = diff <= thresh;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-return;
+end

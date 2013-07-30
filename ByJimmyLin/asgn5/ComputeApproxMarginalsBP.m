@@ -47,6 +47,17 @@ function M = ComputeApproxMarginalsBP(F,E)
         % to make sure you understand its functionality.
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+        % find the cluster containing certain variable N(i)
+        indx = FindPotentialWithVariable(P, N(i));
+        % derive that cluster
+        cluster = P.clusterList(indx);
+        % observation
+        cluster = ObserveEvidence(cluster, E);
+        % marginalization
+        M(i) = FactorMarginalization(cluster, setdiff(cluster.var, [i]));
+        % normalization
+        M(i).val = M(i).val / sum(M(i).val);
+
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     end
 

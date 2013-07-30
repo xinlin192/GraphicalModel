@@ -46,6 +46,20 @@ for m = 1:length(edgeFromIndx),
     % be useful here (for making your code faster)
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
+    % get the involved variables of the message
+    nVar = length(P.clusterList(i).var);
+    if nVar == 1
+        MESSAGES(i, j) = P.clusterList(i);
+    else
+
+    [var, II, IJ] = intersect(P.clusterList(i).var, P.clusterList(j).var);
+    % get the corresponding cardinality
+    card = P.clusterList(j).card(IJ);
+    % set all the entries to one
+    val = ones(1, prod(card)) / prod(card);
+    % assign factor to the message matrix
+    MESSAGES(i,j) = struct('var', var, 'card', card, 'val', val);
+    end
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 end;
@@ -73,7 +87,24 @@ while (1),
     % The function 'setdiff' may be useful to help you
     % obtain some speedup in this function
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
+
+    % derive all index having message to cluster i
+    indxToI = find(edgeToIndx == i);
+    % remove the message from cluster j to cluster i 
+    cliqueToI = setdiff(edgeToIndx(indxToI),  [j]);
+    % initialise to be the initial potential
+    acc = P.clusterList(i);
+    % multiplies those messages to cluster i
+    for n = cliqueToI,
+        acc = FactorProduct(MESSAGES(n, i), acc);
+    end
+    % marginalization
+    marginal = FactorMarginalization(acc, setdiff(acc.var, P.clusterList(j).var));
+    % normalization
+    marginal.val = marginal.val / sum(marginal.val);
+    % assignment
+    MESSAGES(i,j) = marginal;
+
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
@@ -96,6 +127,9 @@ end;
 toc;
 disp(['Total number of messages passed: ', num2str(iteration)]);
 
+
+%for i = 1:N, for j = 1:N, if ~isempty(MESSAGES(i,j).val), indx = [i,j], MV = MESSAGES(i,j).val, end, end, end
+%P.edges
 
 % Compute final potentials and place them in P
 for m = 1:length(edgeFromIndx),

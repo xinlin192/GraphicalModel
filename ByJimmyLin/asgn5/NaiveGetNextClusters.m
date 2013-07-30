@@ -27,6 +27,23 @@ function [i, j] = NaiveGetNextClusters(P, m)
     % The 'find' function may be useful
     %
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    % nubmer of total cliques
+    N = size(P.edges, 1);
+    % traverse all possible pairs by given criteria
+    table = [];
+    for j = 1:N % dest index
+        for i = 1:N % origin index
+            if P.edges(i, j) && i ~= j
+                table = [table ; i j];
+            end
+        end
+    end
+    % use modular to solve the problem of overflow of m
+    m = mod(m, size(table, 1));
+    i = table(m+1, 1);
+    j = table(m+1, 2);
+
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
